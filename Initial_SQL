@@ -1,0 +1,76 @@
+
+insert into yspacedb.modules  (id,active,name) values (1,true,'Social');
+insert into yspacedb.modules  (id,active,name) values (2,true,'Work');
+insert into yspacedb.modules  (id,active,name) values (3,true,'Investments');
+insert into yspacedb.modules  (id,active,name) values (10,true,'Email');
+insert into yspacedb.modules  (id,active,name) values (4,true,'News');
+insert into yspacedb.modules  (id,active,name) values (5,true,'Music');
+insert into yspacedb.modules  (id,active,name) values (6,true,'Developer');
+insert into yspacedb.modules  (id,active,name) values (7,true,'Study');
+insert into yspacedb.modules  (id,active,name) values (8,true,'Personal');
+insert into yspacedb.modules  (id,active,name) values (9,true,'Chat');
+insert into yspacedb.modules  (id,active,name) values (8,true,'Personal');
+
+
+
+
+insert into yspacedb.applications (id,active, icon, name , url) values (1,1, '','Facebook','https://www.facebook.com/');
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (2,1, '',(select id from yspacedb.modules where name = 'Social'),'Instagram','https://www.instagram.com/');
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (3,1, '',(select id from yspacedb.modules where name = 'Social'),'Twitter','https://twitter.com/login?lang=pt');
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (4,1, '',(select id from yspacedb.modules where name = 'Social'),'Threads','https://www.facebook.com/threadsradio/');
+
+
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (5,1, '',(select id from yspacedb.modules where name = 'Work'),'Office 365','	');
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (6,1, '',(select id from yspacedb.modules where name = 'Work'),'Google Suite','https://admin.google.com/ac/accountchooser?continue=https://gsuite.google.com/dashboard&pli=1');
+
+
+
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (7,1, '',(select id from yspacedb.modules where name = 'Investments'),'Infomoney','https://www.infomoney.com.br/');
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (8,1, '',(select id from yspacedb.modules where name = 'Investments'),'Investing','https://br.investing.com/');
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (9,1, '',(select id from yspacedb.modules where name = 'Investments'),'Crypto','https://coinmarketcap.com/pt-br/');
+
+
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (10,1, '',(select id from yspacedb.modules where name = 'News'),'UOL','https://www.uol.com.br/');
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (11,1, '',(select id from yspacedb.modules where name = 'News'),'G1','https://g1.globo.com/');
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (12,1, '',(select id from yspacedb.modules where name = 'News'),'CNN','https://www.cnnbrasil.com.br/');
+
+
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (13,1, '',(select id from yspacedb.modules where name = 'Music'),'Spoty','https://open.spotify.com/');
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (14,1, '',(select id from yspacedb.modules where name = 'Music'),'YouTube Music','https://music.youtube.com/');
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (15,1, '',(select id from yspacedb.modules where name = 'Music'),'Deezer','https://www.deezer.com/br/');
+
+
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (16,1, '',(select id from yspacedb.modules where name = 'Developer'),'GitHub','https://github.com/');
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (17,1, '',(select id from yspacedb.modules where name = 'Developer'),'StackOverFlow','https://stackoverflow.com/');
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (18,1, '',(select id from yspacedb.modules where name = 'Developer'),'ChatGPT','https://chat.openai.com/');
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (19,1, '',(select id from yspacedb.modules where name = 'Developer'),'VScode','https://vscode.dev/');
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (20,1, '',(select id from yspacedb.modules where name = 'Developer'),'Postman','https://www.postman.com/');
+
+
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (21,1, '',(select id from yspacedb.modules where name = 'Study'),'Khanacademy','https://pt.khanacademy.org/');
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (22,1, '',(select id from yspacedb.modules where name = 'Study'),'Descomplica','https://descomplica.com.br/');
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (23,1, '',(select id from yspacedb.modules where name = 'Study'),'Duolinguo','https://pt.duolingo.com');
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (24,1, '',(select id from yspacedb.modules where name = 'Study'),'Kultivi','https://kultivi.com/');
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (25,1, '',(select id from yspacedb.modules where name = 'Study'),'Aulas USP','https://eaulas.usp.br/portal/home');
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (26,1, '',(select id from yspacedb.modules where name = 'Study'),'Calcula Mais','https://calculemais.com.br/');
+
+
+
+
+
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (27,1, '',(select id from yspacedb.modules where name = 'Chat'),'WhatsApp','https://web.whatsapp.com/');
+insert into yspacedb.applications (id,active, icon, id_module, name ,url)  values (28,1, '',(select id from yspacedb.modules where name = 'Chat'),'Telegram','https://web.telegram.org/');
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (29,1, '',(select id from yspacedb.modules where name = 'Chat'),'Discord','https://discord.com/');
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (30,1, '',(select id from yspacedb.modules where name = 'Chat'),'Messeger Instagram','https://about.instagram.com/pt-br/features/direct');
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (31,1, '',(select id from yspacedb.modules where name = 'Chat'),'Messeger FaceBook','https://www.facebook.com/messenger/?locale=pt_BR');
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (32,1, '',(select id from yspacedb.modules where name = 'Chat'),'Slack','https://slack.com/intl/pt-br');
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (33,1, '',(select id from yspacedb.modules where name = 'Chat'),'Google Chat','https://mail.google.com/chat/u/0/');
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (34,1, '',(select id from yspacedb.modules where name = 'Chat'),'X Chat','https://twitter.com/messages');
+
+
+
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (35,1, '',(select id from yspacedb.modules where name = 'Email'),'Gmail','https://gmail.com/');
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (36,1, '',(select id from yspacedb.modules where name = 'Email'),'OutLook','https://outlook.live.com/');
+insert into yspacedb.applications (id,active, icon, id_module, name , url) values (37,1, '',(select id from yspacedb.modules where name = 'Email'),'Yahoo','https://br.mail.yahoo.com/');
+
+
