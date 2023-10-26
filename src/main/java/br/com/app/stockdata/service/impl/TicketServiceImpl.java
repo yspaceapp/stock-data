@@ -1,6 +1,11 @@
 package br.com.app.stockdata.service.impl;
 
+import br.com.app.stockdata.model.Ticket;
+import br.com.app.stockdata.model.Type;
+import br.com.app.stockdata.model.dto.ResultDTO;
+import br.com.app.stockdata.repository.TicketRepository;
 import br.com.app.stockdata.service.TicketService;
+import br.com.app.stockdata.util.ConvertUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;

@@ -18,10 +18,5 @@ public class TicketController {
         ticketService.fetchDataFromExternalApi();
     }
 
-    @GetMapping("/stocks/all")
-    public void all(){
-        ticketService.AllTickets();
-    }
-
 
 }
