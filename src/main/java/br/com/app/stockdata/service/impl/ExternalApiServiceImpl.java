@@ -1,10 +1,10 @@
 package br.com.app.stockdata.service.impl;
 
-import br.com.app.stockdata.Utils.ConvertUtils;
+import br.com.app.stockdata.util.ConvertUtils;
 import br.com.app.stockdata.model.Stock;
 import br.com.app.stockdata.model.dto.AssetsDTO;
 import br.com.app.stockdata.repository.StockRepository;
-import br.com.app.stockdata.service.StockService;
+import br.com.app.stockdata.service.ExternalApiService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,13 +16,7 @@ import org.springframework.web.client.RestTemplate;
 
 @Service
 @RequiredArgsConstructor
-public class StockServiceImpl implements StockService {
-
-    @Value("${token}")
-    private String tokenStocke;
-
-    @Value("${url}")
-    private String urlStock;
+public class StockServiceImpl implements ExternalApiService {
 
     private final StockRepository repository;
     private final ModelMapper mapper;
