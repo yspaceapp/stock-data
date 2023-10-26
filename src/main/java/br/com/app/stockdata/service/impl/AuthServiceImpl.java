@@ -1,6 +1,6 @@
 package br.com.app.stockdata.service.impl;
 
-import br.com.app.stockdata.Utils.ValidatorUtils;
+import br.com.app.stockdata.util.ValidatorUtils;
 import br.com.app.stockdata.constants.MessagesConstants;
 import br.com.app.stockdata.repository.UserRepository;
 import br.com.app.stockdata.security.JwtService;
@@ -56,7 +56,7 @@ public class AuthServiceImpl implements AuthService {
                 .activated(true)
                 .createAt(new Date())
                 .build();
-        var userSaved = userRepository.save(user);
+         userRepository.save(user);
 
         return AuthResponse.builder()
                 .message(MessagesConstants.SUCCESSFUL_TOKEN_GENERATOR)

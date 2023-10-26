@@ -1,10 +1,12 @@
-package br.com.app.stockdata.Utils;
+package br.com.app.stockdata.util;
 
-import br.com.app.stockdata.model.dto.AssetsDTO;
 import com.google.gson.Gson;
 
 
 public class ConvertUtils {
+
+    private ConvertUtils() {
+    }
 
     public static <T> T convertJsonToObject(String jsonString, Class<T> targetType) {
         Gson gson = new Gson();

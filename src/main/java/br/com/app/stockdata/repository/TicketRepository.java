@@ -1,12 +1,10 @@
 package br.com.app.stockdata.repository;
 
-import br.com.app.stockdata.model.Stock;
-import br.com.app.stockdata.model.Users;
+import br.com.app.stockdata.model.Ticket;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.Optional;
+public interface TicketRepository extends JpaRepository<Ticket, Integer> {
 
-public interface StockRepository extends JpaRepository<Stock, Integer> {
 
 
 }

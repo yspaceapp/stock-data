@@ -1,5 +1,7 @@
 package br.com.app.stockdata.service.impl;
 
+import br.com.app.stockdata.repository.TicketRepository;
+import br.com.app.stockdata.service.TicketService;
 import br.com.app.stockdata.util.ConvertUtils;
 import br.com.app.stockdata.model.Stock;
 import br.com.app.stockdata.model.dto.AssetsDTO;
@@ -13,20 +15,31 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
+
 
 @Service
 @RequiredArgsConstructor
-public class StockServiceImpl implements ExternalApiService {
+public class ExternalApiServiceImpl implements ExternalApiService {
+
+    @Value("${URL_STOCK}")
+    String urlStock;
+
+    @Value("${TOKEN_BR_API}")
+    String token;
 
     private final StockRepository repository;
+    private final TicketRepository ticketRepository;
     private final ModelMapper mapper;
 
     private final RestTemplate restTemplate;
 
-    public String fetchDataFromExternalApi() {
+    public String fetchDataFromExternalApi(String ticket) {
 
         try {
-            String apiUrl = urlStock + "PETR4" + tokenStocke;
+            String apiUrl = urlStock + ticket + token;
             ResponseEntity<String> responseEntity = restTemplate.getForEntity(apiUrl, String.class);
             if (responseEntity.getStatusCode().is2xxSuccessful()) {
                 var assets = ConvertUtils.convertJsonToObject(responseEntity.getBody(), AssetsDTO.class);
