@@ -14,6 +14,7 @@ public class TicketController {
     private final TicketService ticketService;
 
     @GetMapping("/stocks")
+    //Adicionar cache redis
     public void fetchListStocks(){
         ticketService.fetchDataFromExternalApi();
     }
