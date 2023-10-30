@@ -1,5 +1,6 @@
 package br.com.app.stockdata.controller;
 
+import br.com.app.stockdata.service.AssetsService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,7 @@ public class AuthController {
 
     private final AuthService authService;
     private final ExternalApiService externalApiService;
+    private final AssetsService assetsService;
 
     @PostMapping("/register")
     public AuthResponse register(@RequestBody AuthRequest request){
@@ -29,9 +31,5 @@ public class AuthController {
         return authService.authenticate(request);
     }
 
-    @PostMapping("/batch")
-    public void register(){
-        externalApiService.fetchDataFromExternalApi();
-    }
 
 }

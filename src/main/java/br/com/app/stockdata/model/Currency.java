@@ -17,7 +17,7 @@ import lombok.Setter;
 public class Currency {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String fromCurrency;
     private String toCurrency;

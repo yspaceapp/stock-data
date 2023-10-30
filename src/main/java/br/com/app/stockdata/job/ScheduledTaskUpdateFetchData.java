@@ -19,4 +19,9 @@ public class ScheduledTaskUpdateFetchData {
         externalApiService.fetchDataFromExternalApi();
     }
 
+    @Scheduled(cron = "0 0/3 9-17 ? * MON-FRI")
+    public void ScheduleFetchCrypto() {
+        //externalApiService.fetchDataFromExternalApi();
+    }
+
 }

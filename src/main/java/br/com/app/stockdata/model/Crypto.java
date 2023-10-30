@@ -17,7 +17,7 @@ import lombok.Setter;
 public class Crypto {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String currency;
     private Double currencyRateFromUSD;

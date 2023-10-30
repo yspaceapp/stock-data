@@ -20,7 +20,8 @@ import java.util.Date;
 @Table(name = "users")
 public class Users implements UserDetails {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "serial")
     private Integer id;
     private String email;
     private String password;
