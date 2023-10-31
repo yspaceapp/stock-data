@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface AssetsService {
 
-    void updateListAssets();
+
+    void updateListAssets(String type);
     List<Assets> findAll();
 }

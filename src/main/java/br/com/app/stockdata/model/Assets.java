@@ -18,6 +18,7 @@ public class Assets {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String symbol;
-    private Type type;
+    private String name;
+    private String type;
 
 }

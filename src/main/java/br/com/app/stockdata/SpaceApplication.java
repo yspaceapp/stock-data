@@ -19,7 +19,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @OpenAPIDefinition(info = @Info(title = "Stock Data Market", version = "2.0", description = "Generation auth"))
 @EnableScheduling
 @EnableJpaRepositories
-
 public class SpaceApplication {
 
 	public static void main(String[] args) {

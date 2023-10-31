@@ -18,8 +18,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AssetsController {
 
-    private final AuthService authService;
-    private final ExternalApiService externalApiService;
     private final AssetsService assetsService;
 
 
@@ -28,9 +26,9 @@ public class AssetsController {
         return assetsService.findAll();
     }
 
-    @GetMapping("/stock")
-    public void assets(){
-        assetsService.updateListAssets();
+    @GetMapping("/{type}")
+    public void updateListAssets(@PathVariable("type") String type){
+        assetsService.updateListAssets(type);
     }
 
 }
