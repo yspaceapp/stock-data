@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CurrencyDto {
+public class CurrencyDTO {
     public String name;
     public String currency;
 }

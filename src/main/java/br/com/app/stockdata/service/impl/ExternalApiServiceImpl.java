@@ -1,11 +1,10 @@
 package br.com.app.stockdata.service.impl;
 
-import br.com.app.stockdata.model.Stock;
 import br.com.app.stockdata.model.Assets;
+import br.com.app.stockdata.model.Stock;
 import br.com.app.stockdata.model.Type;
 import br.com.app.stockdata.model.dto.StocksDTO;
 import br.com.app.stockdata.repository.StockRepository;
-import br.com.app.stockdata.repository.AssetsRepository;
 import br.com.app.stockdata.service.AssetsService;
 import br.com.app.stockdata.service.ExternalApiService;
 import br.com.app.stockdata.util.ConvertUtils;
@@ -22,7 +21,6 @@ import org.springframework.web.client.RestTemplate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -41,9 +39,8 @@ public class ExternalApiServiceImpl implements ExternalApiService {
     private final RestTemplate restTemplate;
 
     public List<List<String>> groupList() {
-        List<String> symbols = assetsService.findAll().stream()
-                .map(Assets::getSymbol)
-                .collect(Collectors.toList());
+        List<String> symbols = assetsService.findAll().stream().filter(item -> item.getType().equals("STOCK"))
+                .map(Assets::getSymbol).toList();
 
         List<List<String>> groupedLists = new ArrayList<>();
         for (int i = 0; i < symbols.size(); i += 20) {

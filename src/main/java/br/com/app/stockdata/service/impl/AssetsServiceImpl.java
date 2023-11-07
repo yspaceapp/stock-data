@@ -4,7 +4,7 @@ import br.com.app.stockdata.constants.ServiceConstants;
 import br.com.app.stockdata.model.Assets;
 import br.com.app.stockdata.model.Type;
 import br.com.app.stockdata.model.dto.AssetsDTO;
-import br.com.app.stockdata.model.dto.CurrencyDto;
+import br.com.app.stockdata.model.dto.CurrencyDTO;
 import br.com.app.stockdata.repository.AssetsRepository;
 import br.com.app.stockdata.service.AssetsService;
 import br.com.app.stockdata.util.ConvertUtils;
@@ -81,11 +81,11 @@ public class AssetsServiceImpl implements AssetsService {
         }
     }
 
-    private void saveFilteredAssetsCurrency(List<CurrencyDto> currencies) {
+    private void saveFilteredAssetsCurrency(List<CurrencyDTO> currencies) {
         currencies.forEach(currency ->
                 assetsRepository.save(Assets.builder()
-                        .symbol(currency.getCurrency())
-                        .name(currency.getName())
+                        .symbol(currency.getName())
+                        .name(currency.getCurrency())
                         .type(Type.CURRENCY.name())
                         .build())
         );

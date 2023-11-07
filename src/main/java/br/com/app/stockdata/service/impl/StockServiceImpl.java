@@ -18,4 +18,9 @@ public class StockServiceImpl implements StockService {
     public List<Stock> findDistinctSymbolsWithMaxCreateDate() {
         return stockRepository.findDistinctSymbolsWithMaxCreateDate();
     }
+
+    @Override
+    public List<Stock> findDistinctBySymbolWithMaxCreateDate(String symbol) {
+        return stockRepository.findDistinctBySymbolWithMaxCreateDate(symbol);
+    }
 }

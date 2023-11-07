@@ -7,4 +7,6 @@ import java.util.List;
 public interface StockService {
 
     List<Stock> findDistinctSymbolsWithMaxCreateDate();
+
+    List<Stock> findDistinctBySymbolWithMaxCreateDate(String symbol);
 }

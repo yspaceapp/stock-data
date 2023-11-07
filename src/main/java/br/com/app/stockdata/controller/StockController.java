@@ -4,6 +4,7 @@ import br.com.app.stockdata.model.Stock;
 import br.com.app.stockdata.service.StockService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,5 +22,9 @@ public class StockController {
         return stockService.findDistinctSymbolsWithMaxCreateDate();
     }
 
+    @GetMapping("/{symbol}")
+    public List<Stock> findDistinctBySymbolWithMaxCreateDate(@PathVariable("symbol") String symbol) {
+        return stockService.findDistinctBySymbolWithMaxCreateDate(symbol);
+    }
 
 }
