@@ -1,7 +1,6 @@
 package br.com.app.stockdata.job;
 
 import br.com.app.stockdata.service.ExternalApiService;
-import br.com.app.stockdata.util.DateUltils;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
