@@ -18,10 +18,11 @@ import lombok.Setter;
 public class Stock {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String symbol;
     private String currency;
+    private String type;
     private Double twoHundredDayAverage;
     private Double twoHundredDayAverageChange;
     private Double twoHundredDayAverageChangePercent;
@@ -51,4 +52,5 @@ public class Stock {
     private Double earningsPerShare;
     private String logourl;
     private String updatedAt;
+    private String createAt;
 }

@@ -2,9 +2,9 @@ package br.com.app.stockdata.controller;
 
 import br.com.app.stockdata.model.Stock;
 import br.com.app.stockdata.service.StockService;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,8 +17,14 @@ public class StockController {
 
     private final StockService stockService;
 
-    @GetMapping("/")
-    public String getStock() throws JsonProcessingException {
-        return stockService.fetchDataFromExternalApi();
+    @GetMapping
+    public List<Stock> lastPriceStocks(){
+        return stockService.findDistinctSymbolsWithMaxCreateDate();
     }
+
+    @GetMapping("/{symbol}")
+    public List<Stock> findDistinctBySymbolWithMaxCreateDate(@PathVariable("symbol") String symbol) {
+        return stockService.findDistinctBySymbolWithMaxCreateDate(symbol);
+    }
+
 }
