@@ -5,6 +5,4 @@ public interface ExternalApiService {
 
     void fetchDataFromExternalApi();
 
-    void fetchDataFromExternalApi(String type);
-
 }

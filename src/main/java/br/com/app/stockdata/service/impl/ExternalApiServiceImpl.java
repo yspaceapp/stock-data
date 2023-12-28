@@ -50,8 +50,6 @@ public class ExternalApiServiceImpl implements ExternalApiService {
         return groupedLists;
     }
 
-
-
     @Override
     public void fetchDataFromExternalApi() {
         AtomicInteger numberStockUpdated = new AtomicInteger();
@@ -81,32 +79,6 @@ public class ExternalApiServiceImpl implements ExternalApiService {
         }
         log.info("Updated Stocks " + numberStockUpdated + " - " + DateUltils.dateCurrent());
     }
-
-    @Override
-    public void fetchDataFromExternalApi(String type) {
-        AtomicInteger numberStockUpdated = new AtomicInteger();
-        try {
-            groupList().forEach(item -> {
-                var url = trataUrl(urlStocks + String.join(",", item) + token); //muda
-                ResponseEntity<String> responseEntity = restTemplate.getForEntity(url, String.class);
-                if (responseEntity.getStatusCode().is2xxSuccessful()) {
-                    var assets = ConvertUtils.convertJsonToObject(responseEntity.getBody(), StocksDTO.class);
-                    assets.getResults().forEach(asset -> {
-                        System.out.println(asset);
-
-                    });
-                } else if (responseEntity.getStatusCode().is4xxClientError()) {
-                    throw new HttpClientErrorException(responseEntity.getStatusCode(), "Error client ");
-                } else if (responseEntity.getStatusCode().is5xxServerError()) {
-                    throw new HttpClientErrorException(responseEntity.getStatusCode(), "Error Intern ");
-                }
-            });
-        } catch (HttpClientErrorException e) {
-            throw new HttpClientErrorException(e.getStatusCode(), e.getMessage());
-        }
-        log.info("Updated Stocks " + numberStockUpdated + " - " + DateUltils.dateCurrent());
-    }
-
     private String trataUrl(String url) {
         return url.replaceAll("\\[\\s]+|\\s+\\]", "").replaceAll(" ", "");
     }
