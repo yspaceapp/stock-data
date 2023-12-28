@@ -17,7 +17,7 @@ public class CryptoController {
 
     private final CryptoService cryptoService;
 
-    @GetMapping
+    @GetMapping("/last-prices")
     public List<Crypto> lastPriceStocks(){
         return cryptoService.findDistinctSymbolsWithMaxCreateDate();
     }
