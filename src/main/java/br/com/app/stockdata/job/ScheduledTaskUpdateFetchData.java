@@ -13,7 +13,7 @@ public class ScheduledTaskUpdateFetchData {
 
     private final ExternalApiService externalApiService;
 
-    @Scheduled(cron = "0 */3 9-17 * * MON-FRI")
+    @Scheduled(cron = "0 */1 9-18 * * MON-FRI")
     public void ScheduleFetchStock() {
         externalApiService.fetchDataFromExternalApi();
     }

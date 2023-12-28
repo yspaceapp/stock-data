@@ -19,6 +19,7 @@ public class Crypto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    private String type;
     private String currency;
     private Double currencyRateFromUSD;
     private String coinName;
@@ -33,4 +34,6 @@ public class Crypto {
     private Double marketCap;
     private Integer regularMarketTime;
     private String coinImageUrl;
+    private String updatedAt;
+    private String createAt;
 }
