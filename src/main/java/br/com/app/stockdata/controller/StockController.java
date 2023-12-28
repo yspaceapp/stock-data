@@ -17,7 +17,7 @@ public class StockController {
 
     private final StockService stockService;
 
-    @GetMapping
+    @GetMapping("/last-prices")
     public List<Stock> lastPriceStocks(){
         return stockService.findDistinctSymbolsWithMaxCreateDate();
     }

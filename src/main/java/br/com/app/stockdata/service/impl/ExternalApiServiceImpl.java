@@ -50,12 +50,14 @@ public class ExternalApiServiceImpl implements ExternalApiService {
         return groupedLists;
     }
 
+
+
     @Override
     public void fetchDataFromExternalApi() {
         AtomicInteger numberStockUpdated = new AtomicInteger();
         try {
             groupList().forEach(item -> {
-                var url = trataUrl(urlStocks + String.join(",", item) + token); //muda
+                var url = trataUrl(urlStocks + String.join(",", item) + token);
                 ResponseEntity<String> responseEntity = restTemplate.getForEntity(url, String.class);
                 if (responseEntity.getStatusCode().is2xxSuccessful()) {
                     var assets = ConvertUtils.convertJsonToObject(responseEntity.getBody(), StocksDTO.class);
@@ -78,19 +80,6 @@ public class ExternalApiServiceImpl implements ExternalApiService {
             throw new HttpClientErrorException(e.getStatusCode(), e.getMessage());
         }
         log.info("Updated Stocks " + numberStockUpdated + " - " + DateUltils.dateCurrent());
-    }
-
-
-    public List<List<String>> groupList(String type) {
-        List<String> symbols = assetsService.findAll().stream().filter(item -> item.getType().equals(type))
-                .map(Assets::getSymbol).toList();
-
-        List<List<String>> groupedLists = new ArrayList<>();
-        for (int i = 0; i < symbols.size(); i += 20) {
-            int end = Math.min(i + 20, symbols.size());
-            groupedLists.add(symbols.subList(i, end));
-        }
-        return groupedLists;
     }
 
     @Override
@@ -117,16 +106,6 @@ public class ExternalApiServiceImpl implements ExternalApiService {
         }
         log.info("Updated Stocks " + numberStockUpdated + " - " + DateUltils.dateCurrent());
     }
-
-    private Object defineObjectByType(String type){
-
-        if(type.equals(Type.STOCK)){
-            System.out.println("TESTE");
-        }
-        return null;
-
-    }
-
 
     private String trataUrl(String url) {
         return url.replaceAll("\\[\\s]+|\\s+\\]", "").replaceAll(" ", "");
